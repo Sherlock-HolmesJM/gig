@@ -33,7 +33,6 @@ class LoginForm extends Form {
 	};
 
 	async doSubmit() {
-		console.log("...");
 		try {
 			const { email, password } = this.state.data;
 			const { user } = await signInWithEmailAndPassword(
