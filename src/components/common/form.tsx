@@ -1,6 +1,5 @@
 import React from "react";
 import Joi from "joi";
-import { RouteProps } from "react-router-dom";
 import Input from "./input";
 import Select from "./select";
 import Button from "./button";
@@ -9,7 +8,7 @@ export interface FormProps {}
 
 export interface FormState {}
 
-class Form extends React.Component<RouteProps, FormState> {
+class Form extends React.Component<any, FormState> {
 	state = { data: {}, errors: {} };
 
 	schema = {};
