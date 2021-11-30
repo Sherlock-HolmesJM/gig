@@ -45,7 +45,7 @@ class RegisterForm extends Form {
 
 			this.props.history.replace("/");
 		} catch (error) {
-			alert("An error occured. Please try again later.");
+			alert(error.message);
 			console.log(error.message);
 		}
 	}
@@ -79,7 +79,7 @@ const Wrapper = styled.div`
 	min-height: 100vh;
 
 	form {
-		width: 500px;
+		min-width: 300px;
 		padding: 0;
 	}
 `;

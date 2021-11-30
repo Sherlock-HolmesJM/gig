@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const Button = styled.button`
+const Button = styled.button<{ disabled?: boolean }>`
 	color: white;
-	background-color: #2e74c4;
+	background-color: ${props => (props.disabled ? "gray" : "#2e74c4")};
 	padding: 10px;
 	margin: 5px;
 	border: none;

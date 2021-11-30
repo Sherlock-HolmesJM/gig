@@ -1,6 +1,11 @@
 import Joi from "joi";
 import styled from "styled-components";
-import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import {
+	getAuth,
+	signInWithEmailAndPassword,
+	signOut,
+	onAuthStateChanged
+} from "firebase/auth";
 import { getFirestore, getDoc, doc } from "firebase/firestore";
 import Form from "./common/form";
 import Button from "./common/button";
@@ -8,6 +13,7 @@ import Button from "./common/button";
 class LoginForm extends Form {
 	state = {
 		data: { email: "", password: "" },
+		ui: { login: true },
 		errors: { email: "" }
 	};
 
@@ -15,6 +21,12 @@ class LoginForm extends Form {
 		email: Joi.string().email().required().label("Email"),
 		password: Joi.string().min(5).required().label("Password")
 	};
+
+	componentDidMount() {
+		onAuthStateChanged(getAuth(), user => {
+			this.setState({ ...this.state, ui: { login: !user } });
+		});
+	}
 
 	register = e => {
 		e.preventDefault();
@@ -49,7 +61,7 @@ class LoginForm extends Form {
 
 			alert(`Welcome back ${name}`);
 		} catch (error) {
-			alert("An error occured. Please try again later.");
+			alert(error.message);
 			console.log(error.message);
 		}
 	}
@@ -61,8 +73,11 @@ class LoginForm extends Form {
 				<form onSubmit={this.handleSubmit}>
 					{this.renderInput("email", "Email", "email")}
 					{this.renderInput("password", "Password", "password")}
-					{this.renderButton("Login")}
-					<Button onClick={this.logout}>Logout</Button>
+					{this.state.ui.login ? (
+						this.renderButton("Login")
+					) : (
+						<Button onClick={this.logout}>Logout</Button>
+					)}
 					<Button onClick={this.register}>Register</Button>
 				</form>
 			</Wrapper>
@@ -83,7 +98,7 @@ const Wrapper = styled.div`
 	min-height: 100vh;
 
 	form {
-		width: 500px;
+		min-width: 300px;
 		padding: 0;
 	}
 `;

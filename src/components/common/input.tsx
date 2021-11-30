@@ -29,11 +29,17 @@ const Wrapper = styled.div`
 	margin: 5px;
 	gap: 5px;
 
+	label {
+		margin-left: 5px;
+	}
+
 	input {
 		font-size: 16px;
 		padding: 6px;
 		outline: none;
 		width: 99%;
+		border-radius: 5px;
+		border: 1px solid gray;
 	}
 
 	.input-error {
