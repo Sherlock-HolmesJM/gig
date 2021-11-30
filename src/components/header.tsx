@@ -42,6 +42,7 @@ const Wrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	background-color: ${window.theme.darker};
+	/* z-index: 12px; */
 
 	header {
 		display: flex;
@@ -67,6 +68,10 @@ const Wrapper = styled.div`
 		gap: 1rem;
 		list-style-type: none;
 		font-size: 18px;
+
+		@media (max-width: 750px) {
+			display: none;
+		}
 	}
 
 	li {

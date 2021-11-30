@@ -3,23 +3,18 @@ import hero from "../assets/hero.svg";
 import designer from "../assets/designer.svg";
 import designer_f from "../assets/designer_f.svg";
 import Button from "./common/button";
+import HeroSection from "./common/heroSection";
 
 const LandingPage = () => {
 	return (
 		<Wrapper>
-			<div className="page-center">
-				<div className="page-text">
-					<div>award winning design</div>
-					<div>
-						We make your business look <span>great</span>
-					</div>
-					<Button>Quote</Button>
+			<HeroSection img={hero}>
+				<div>award winning design</div>
+				<div>
+					We make your business look <span>great</span>
 				</div>
-
-				<div className="page-image">
-					<img src={hero} alt="hero" />
-				</div>
-			</div>
+				<Button>Quote</Button>
+			</HeroSection>
 
 			<div className="page-bottom">
 				<div className="page-bottom-left">
@@ -49,31 +44,11 @@ const Wrapper = styled.div`
 	flex-direction: column;
 	align-items: center;
 
-	.page-center {
-		display: flex;
-		justify-content: space-between;
-		margin: 120px 0;
-		width: 900px;
-	}
-
-	.page-text {
-		font-size: 46px;
-		text-align: left;
-		font-weight: 700;
-		max-width: 350px;
-
-		& > :first-child {
-			color: #1d1313;
-			font-weight: 400;
-			font-size: 18px;
-			text-transform: uppercase;
-		}
-	}
-
 	.page-bottom {
 		position: relative;
 		background-color: ${window.theme.lighter};
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: center;
 		align-items: center;
 
@@ -97,29 +72,40 @@ const Wrapper = styled.div`
 					background-color: ${window.theme.lightest};
 				}
 			}
+
+			@media (max-width: 1093px) {
+				display: none;
+			}
 		}
 
 		.page-bottom-left {
 			flex-grow: 1;
 			display: flex;
+			flex-wrap: wrap;
 			justify-content: center;
 			align-items: center;
-			gap: 50px;
 
 			img {
 				width: 200px;
 				height: 200px;
+				margin: 10px;
 			}
 		}
 
 		.page-bottom-right {
 			flex-basis: 50%;
-			padding: 60px;
+			padding: min(60px, 10vw);
 			color: white;
 			text-align: justify;
 			font-size: 17px;
 			line-height: 25px;
 			background-color: ${window.theme.dark};
+		}
+
+		@media (max-width: 920px) {
+			.page-bottom-right {
+				flex-grow: 1;
+			}
 		}
 	}
 `;
