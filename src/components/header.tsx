@@ -42,7 +42,7 @@ const Wrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	background-color: ${window.theme.darker};
-	/* z-index: 12px; */
+	z-index: 12px;
 
 	header {
 		display: flex;

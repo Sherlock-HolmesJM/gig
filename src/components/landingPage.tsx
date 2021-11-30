@@ -45,7 +45,6 @@ const Wrapper = styled.div`
 	align-items: center;
 
 	.page-bottom {
-		position: relative;
 		background-color: ${window.theme.lighter};
 		display: flex;
 		flex-wrap: wrap;
@@ -60,16 +59,16 @@ const Wrapper = styled.div`
 			width: 90px;
 			height: 90px;
 			border-radius: 50%;
-			background-color: ${window.theme.dark};
+			background-color: ${window.theme.lighter};
 
 			.inner {
 				width: 45px;
 				height: 45px;
-				background-color: ${window.theme.lighter};
+				background-color: ${window.theme.dark};
 				transition: background 0.5s;
 
 				:hover {
-					background-color: ${window.theme.lightest};
+					background-color: ${window.theme.darker};
 				}
 			}
 
