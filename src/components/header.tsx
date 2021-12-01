@@ -59,6 +59,7 @@ const Wrapper = styled.div`
 	}
 
 	.header-title {
+		font-family: "Lobster", cursive;
 		font-size: 20px;
 		font-weight: 400;
 		cursor: context-menu;

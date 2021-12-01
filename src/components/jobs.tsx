@@ -63,7 +63,6 @@ const Wrapper = styled.div`
 		& > :nth-child(3) {
 			display: flex;
 			flex-direction: column;
-			gap: 20px;
 			background-color: ${window.theme.lighter};
 			border-radius: 10px;
 			width: 100%;
@@ -71,18 +70,25 @@ const Wrapper = styled.div`
 
 			.jobs-job {
 				cursor: pointer;
-				padding: 10px;
-				border-radius: inherit;
-				transition: background 0.4s ease-in-out;
+				padding: 20px 10px;
+				transition: all 0.8s ease-in-out;
 
 				&:hover {
-					background-color: ${window.theme.dark};
+					background-color: ${window.theme.light};
+				}
+
+				&:first-child {
+					border-radius: 10px 10px 0 0;
+				}
+				&:last-child {
+					border-radius: 0 0 10px 10px;
 				}
 
 				& > :first-child {
 					color: ${window.theme.darker};
 					font-size: 25px;
 					font-weight: 500;
+					margin-bottom: 10px;
 				}
 
 				& > :last-child {
