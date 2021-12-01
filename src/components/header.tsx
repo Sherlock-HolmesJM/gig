@@ -26,7 +26,11 @@ const Header = () => {
 				</div>
 
 				<div>
-					<Button>Get Hired</Button>
+					<Button>
+						<Link to="/jobs" className="link">
+							Get Hired
+						</Link>
+					</Button>
 				</div>
 			</header>
 		</Wrapper>
@@ -55,9 +59,6 @@ const Wrapper = styled.div`
 	}
 
 	.header-title {
-		@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
-
-		font-family: "Lobster", cursive;
 		font-size: 20px;
 		font-weight: 400;
 		cursor: context-menu;
@@ -82,10 +83,5 @@ const Wrapper = styled.div`
 	}
 	li:hover {
 		background-color: ${window.theme.dark};
-	}
-
-	.link {
-		text-decoration: none;
-		color: inherit;
 	}
 `;
