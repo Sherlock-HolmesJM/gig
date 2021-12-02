@@ -4,7 +4,7 @@ const jobs = () => [
 		title: "Front-End Developer",
 		location: "Remote",
 		type: "Full Time",
-		pay: "$80k - $120k",
+		pay: "₦80k - ₦120k",
 		benefits: [
 			"All your work is open source.",
 			"Competitive compensation.",
@@ -36,7 +36,7 @@ const jobs = () => [
 		title: "Back-End Developer",
 		location: "Nigeria, Remote",
 		type: "Full Time",
-		pay: "$70k - $120k",
+		pay: "₦70k - ₦120k",
 		benefits: [
 			"All your work is open source.",
 			"Competitive compensation.",
@@ -68,7 +68,7 @@ const jobs = () => [
 		title: "Full-Stack Developer",
 		location: "Nigeria, Remote",
 		type: "Full Time",
-		pay: "$180k - $250k",
+		pay: "₦180k - ₦250k",
 		benefits: [
 			"All your work is open source.",
 			"Competitive compensation.",

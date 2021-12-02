@@ -5,15 +5,18 @@ import { initializeApp } from "firebase/app";
 import "./index.css";
 import App from "./App";
 import firebaseConfig from "./config";
+import Provider from "./context";
 // import reportWebVitals from './reportWebVitals';
 
 initializeApp(firebaseConfig);
 
 ReactDOM.render(
 	<React.StrictMode>
-		<BrowserRouter>
-			<App />
-		</BrowserRouter>
+		<Provider>
+			<BrowserRouter>
+				<App />
+			</BrowserRouter>
+		</Provider>
 	</React.StrictMode>,
 	document.getElementById("root")
 );

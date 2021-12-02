@@ -1,8 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { useLocation } from "react-router";
+import { useContext } from "react";
+import { Context } from "../context";
 import styled from "styled-components";
 import Button from "./common/button";
 
 const Header = () => {
+	const { setLogin } = useContext(Context);
+
+	const isLandingPage = useLocation().pathname.endsWith("/");
+
 	return (
 		<Wrapper>
 			<header>
@@ -25,19 +32,23 @@ const Header = () => {
 					</ul>
 				</div>
 
-				<div>
-					<Button>
-						<Link to="/jobs" className="link">
-							Get Hired
-						</Link>
-					</Button>
-				</div>
+				{isLandingPage && (
+					<div className="btn-group">
+						<Button>
+							<Link to="/jobs" className="link">
+								Job Offers
+							</Link>
+						</Button>
+
+						<Button onClick={() => setLogin(true)}>Login</Button>
+					</div>
+				)}
 			</header>
 		</Wrapper>
 	);
 };
 
-export default Header;
+export default withRouter(Header);
 
 const Wrapper = styled.div`
 	position: sticky;
@@ -47,6 +58,16 @@ const Wrapper = styled.div`
 	justify-content: center;
 	background-color: ${window.theme.darker};
 	z-index: 12px;
+
+	.btn-group {
+		@media (max-width: 350px) {
+			& > * {
+				font-size: 14px;
+				padding: 5px;
+				margin: 3px;
+			}
+		}
+	}
 
 	header {
 		display: flex;
