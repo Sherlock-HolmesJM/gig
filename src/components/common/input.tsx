@@ -51,7 +51,7 @@ const Wrapper = styled.div`
 		outline: none;
 		border-radius: 5px;
 		border: 1px solid #bbb9b9;
-		flex: 60%;
+		flex: min(100%, 600px);
 		flex-grow: 0;
 	}
 

@@ -10,12 +10,12 @@ const ApplicationList = () => {
 	useEffect(() => {
 		getDocs(collection(getFirestore(), "pms"))
 			.then(r => {
-				const list = r.docs.map(d => d.data());
-				console.log(list);
-				setList(list);
+				setList(r.docs.map(d => d.data()));
 				setMessage(list.length === 0 ? "No data" : "Loaded");
 			})
 			.catch(e => setMessage("Error: " + e.message));
+
+		// eslint-disable-next-line
 	}, []);
 
 	return (
@@ -125,9 +125,12 @@ const Wrapper = styled.div`
 				margin: 0;
 			}
 
-			@media (max-width: 360px) {
-				/* flex-wrap: wrap; */
-				gap: 0;
+			.item.role {
+				width: min(100%, 280px);
+			}
+
+			@media (max-width: 481px) {
+				gap: 3px;
 
 				.item.role {
 					order: -1;
