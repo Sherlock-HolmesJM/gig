@@ -52,7 +52,7 @@ const AppForm = () => {
 		const data = {
 			form,
 			resume,
-			jobId: id
+			job
 		};
 
 		addDoc(collection(getFirestore(), "pms"), data)

@@ -71,7 +71,7 @@ const Wrapper = styled.div`
 			.jobs-job {
 				cursor: pointer;
 				padding: 20px 10px;
-				transition: all 0.8s ease-in-out;
+				transition: all 0.4s;
 
 				&:hover {
 					background-color: ${window.theme.light};

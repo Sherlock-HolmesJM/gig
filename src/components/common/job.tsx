@@ -74,7 +74,6 @@ const Wrapper = styled.div`
 	align-items: center;
 	gap: 40px;
 	padding-bottom: 30px;
-	font-family: cursive;
 
 	.job-header {
 		display: flex;

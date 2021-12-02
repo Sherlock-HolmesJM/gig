@@ -4,6 +4,7 @@ import designer from "../assets/designer.svg";
 import designer_f from "../assets/designer_f.svg";
 import Button from "./common/button";
 import HeroSection from "./common/heroSection";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
 	return (
@@ -13,7 +14,11 @@ const LandingPage = () => {
 				<div>
 					We make your business look <span>great</span>
 				</div>
-				<Button>Quote</Button>
+				<Button>
+					<Link className="link" to="/list">
+						View
+					</Link>
+				</Button>
 			</HeroSection>
 
 			<div className="page-bottom">

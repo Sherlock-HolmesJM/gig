@@ -1,6 +1,7 @@
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import AppForm from "./components/appForm";
+import ApplicationList from "./components/applicationList";
 import Job from "./components/common/job";
 import Header from "./components/header";
 import Jobs from "./components/jobs";
@@ -15,6 +16,7 @@ function App() {
 				<Route path="/application/:id" component={AppForm} />
 				<Route path="/job/:id" component={Job} />
 				<Route path="/jobs" component={Jobs} />
+				<Route path="/list" component={ApplicationList} />
 				<Route path="/" component={LandingPage} />
 			</Switch>
 		</div>
