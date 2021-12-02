@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Redirect, useParams } from "react-router";
 import jobs from "../../util/job";
 import Button from "./button";
+import { Link } from "react-router-dom";
 
 const Job = () => {
 	const { id } = useParams<{ id: string }>();
@@ -18,7 +19,7 @@ const Job = () => {
 
 	return (
 		<Wrapper>
-			<div className="job-header-wrap">
+			<JobHeaderWrap>
 				<div className="job-header">
 					<div>Opening</div>
 
@@ -30,28 +31,42 @@ const Job = () => {
 						<span>{job.pay}</span>
 					</div>
 				</div>
-			</div>
+			</JobHeaderWrap>
 
 			<div className="listing-group">
 				{listing.map(item => (
-					<div className="listing">
+					<div className="listing" key={item.title}>
 						<div>{item.title}</div>
 
 						<ul>
 							{item.list.map(b => (
-								<li>{b}</li>
+								<li key={b}>{b}</li>
 							))}
 						</ul>
 					</div>
 				))}
 			</div>
 
-			<Button className="apply-btn">Apply for this job</Button>
+			<Button className="apply-btn">
+				<Link to={`/application/${id}`} className="link">
+					Apply for this job
+				</Link>
+			</Button>
 		</Wrapper>
 	);
 };
 
 export default Job;
+
+export const JobHeaderWrap = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px;
+
+	background: ${window.theme.light};
+	width: 100%;
+`;
 
 const Wrapper = styled.div`
 	display: flex;
@@ -60,16 +75,6 @@ const Wrapper = styled.div`
 	gap: 40px;
 	padding-bottom: 30px;
 	font-family: cursive;
-
-	.job-header-wrap {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		padding: 10px;
-
-		background: ${window.theme.light};
-		width: 100%;
-	}
 
 	.job-header {
 		display: flex;

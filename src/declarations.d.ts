@@ -9,5 +9,6 @@ declare global {
 			lighter: string;
 			lightest: string;
 		};
+		b: string; // short for border - for dev purpose
 	}
 }
